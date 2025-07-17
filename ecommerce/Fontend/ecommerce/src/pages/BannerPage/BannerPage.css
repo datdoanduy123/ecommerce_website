@@ -1,0 +1,58 @@
+.banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(to right, #b3e0ff, #66ccff); /* Hoặc dùng ảnh nền */
+  padding: 60px 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.banner-content {
+  max-width: 400px;
+  color: white;
+}
+
+.banner-content h1 {
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.banner-content p {
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+.banner-content button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 25px;
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.banner-images {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  gap: 20px;
+}
+
+.model {
+  height: 300px;
+}
+
+.model-1 {
+  position: relative;
+  z-index: 2;
+}
+
+.model-2 {
+  position: relative;
+  z-index: 1;
+}
+
+

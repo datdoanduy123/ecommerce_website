@@ -1,0 +1,78 @@
+.admin-user-list-popup {
+  position: fixed;
+  right: 20px;
+  bottom: 80px;
+  width: 280px;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  overflow-y: auto;
+  max-height: 500px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  padding: 12px;
+  transition: all 0.3s ease;
+  animation: slideUp 0.3s ease;
+  z-index: 9999;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.admin-user-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.admin-user-list-header h4 {
+  margin: 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.admin-user-list-header button {
+  background-color: transparent;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  color: #888;
+}
+
+.admin-user-list-header button:hover {
+  color: #333;
+}
+
+.admin-user-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.admin-user-list li {
+  margin-bottom: 6px;
+}
+
+.admin-user-list button {
+  width: 100%;
+  text-align: left;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 8px;
+  background-color: #f5f5f5;
+  color: #333;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.admin-user-list button:hover {
+  background-color: #e0e0e0;
+}

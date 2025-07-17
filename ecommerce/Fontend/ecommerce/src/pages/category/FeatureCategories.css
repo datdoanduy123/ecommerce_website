@@ -1,0 +1,29 @@
+/* FeatureCategories.css */
+.feature-categories {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 40px 0;
+}
+
+.category-card {
+  flex: 1;
+  max-width: 250px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.category-card img {
+  width: 100%;
+  border-radius: 12px;
+}
+
+.category-card h3 {
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+.category-card:hover {
+  transform: translateY(-5px);
+}

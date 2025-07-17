@@ -1,0 +1,47 @@
+.input-group {
+  margin: 10px 0;
+  text-align: left;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: #555;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+.save-btn, .cancel-btn {
+  margin-top: 15px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.save-btn {
+  background: #4a90e2;
+  color: white;
+}
+
+.save-btn:hover {
+  background: #357abd;
+}
+
+.cancel-btn {
+  background: #ccc;
+  color: #333;
+  margin-left: 10px;
+}
+
+.cancel-btn:hover {
+  background: #999;
+}

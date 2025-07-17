@@ -1,0 +1,28 @@
+/* src/pages/AdminUserPage.css */
+.admin-user-page {
+  padding: 20px;
+}
+
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.user-table th,
+.user-table td {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+}
+
+.user-table th {
+  background-color: #f4f4f4;
+}
+
+/* src/pages/UserProfilePage.css */
+.user-profile-container {
+  padding: 20px;
+  max-width: 500px;
+  margin: auto;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
