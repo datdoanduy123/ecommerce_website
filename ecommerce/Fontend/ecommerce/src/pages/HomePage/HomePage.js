@@ -9,6 +9,7 @@ import FeatureCategories from "../category/FeatureCategories";
 import PromotionStrip from "../category/PromotionStrip";
 import Testimonials from "../category/Testimonials";
 import Newsletter from "../category/Newsletter";
+import NavigationBar from "../Navigation/NavigationBar";
 
 
 import "./HomePage.css";
@@ -63,7 +64,8 @@ const HomePage = () => {
 
   return (
     <div>
-      <Navigation />
+      {/* <Navigation /> */}
+      <NavigationBar />
       <h2>Sản phẩm nổi bật</h2>
 
       {showMiniCart && (
@@ -87,7 +89,7 @@ const HomePage = () => {
       <button onClick={handleOut} style={{ marginLeft: "10px" }}>
         Đăng xuất
       </button>
-      <PromotionStrip />
+      {/* <PromotionStrip /> */}
       <BannerPage />
       {/* <HeroBannerPage /> */}
       <FeatureCategories />

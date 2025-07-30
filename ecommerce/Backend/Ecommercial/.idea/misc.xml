@@ -14,6 +14,13 @@
         <option value="$PROJECT_DIR$/services/order1/order1/pom.xml" />
         <option value="$PROJECT_DIR$/services/payment/payment/pom.xml" />
         <option value="$PROJECT_DIR$/services/chat/chat/pom.xml" />
+        <option value="$PROJECT_DIR$/services/inventory/inventory/pom.xml" />
+        <option value="$PROJECT_DIR$/services/inventory1/inventory1/pom.xml" />
+        <option value="$PROJECT_DIR$/services/inventory2/inventory2/pom.xml" />
+        <option value="$PROJECT_DIR$/services/inventoryy/inventoryy/pom.xml" />
+        <option value="$PROJECT_DIR$/services/security/security/pom.xml" />
+        <option value="$PROJECT_DIR$/services/jwt/jwt/pom.xml" />
+        <option value="$PROJECT_DIR$/services/jwt1/jwt1/pom.xml" />
       </list>
     </option>
   </component>

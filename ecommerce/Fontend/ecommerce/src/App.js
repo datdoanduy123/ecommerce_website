@@ -20,6 +20,7 @@ import UpdateProductPage from "./pages/admin1/UpdateProductPage";
 import ProductListPage from "./pages/ProductPage/ProductListPage";
 import SearchResultPage from "./pages/ProductPage/SearchResultPage";
 import AdminCategoryPage from "./pages/admin1/AdminCategoryPage ";
+import NavigationBar from "./pages/Navigation/NavigationBar";
 function App() {
   return (
     <Routes>
@@ -44,6 +45,7 @@ function App() {
       <Route path="/productlist" element={<ProductListPage />} />
       <Route path="/search" element={<SearchResultPage />} />
       <Route path="/admin-categories" element={<AdminCategoryPage />} />
+      <Route path="/NavigationBar" element={<NavigationBar />} />
 
       <Route path="/" element={<LoginPage />} />
     </Routes>

@@ -8,10 +8,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="config-server" />
+        <module name="security" />
         <module name="discovery" />
         <module name="gateway" />
       </profile>
-      <profile name="Annotation profile for product" enabled="true">
+      <profile name="Annotation profile for jwt1" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
@@ -19,13 +20,21 @@
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.38/lombok-1.18.38.jar" />
         </processorPath>
         <module name="product" />
-        <module name="payment" />
         <module name="auth" />
         <module name="chat" />
+        <module name="payment" />
+        <module name="jwt1" />
+        <module name="inventoryy" />
         <module name="order" />
         <module name="customer" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="inventory" target="21" />
+      <module name="inventory1" target="21" />
+      <module name="inventory2" target="21" />
+      <module name="jwt" target="21" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
@@ -35,9 +44,16 @@
       <module name="customer" options="-parameters" />
       <module name="discovery" options="-parameters" />
       <module name="gateway" options="-parameters" />
+      <module name="inventory" options="-parameters" />
+      <module name="inventory1" options="-parameters" />
+      <module name="inventory2" options="-parameters" />
+      <module name="inventoryy" options="-parameters" />
+      <module name="jwt" options="-parameters" />
+      <module name="jwt1" options="-parameters" />
       <module name="order" options="-parameters" />
       <module name="payment" options="-parameters" />
       <module name="product" options="-parameters" />
+      <module name="security" options="-parameters" />
     </option>
   </component>
 </project>

@@ -31,7 +31,6 @@ public class ProductMapper {
           product.getProductName(),
           product.getProductDescription(),
           product.getProductPrice(),
-          product.getAvailableQuantity(),
           product.getProducImgUrl(),
           product.getStatus(),
           product.getSize(),
@@ -53,7 +52,6 @@ public class ProductMapper {
                 .productDescription(request.productDescription())
                 .producImgUrl(request.producImgUrl())
                 .status(request.status())
-                .availableQuantity(request.availableQuantity())
                 .size(request.size())
                 .gender(request.gender())
                 .category(category)

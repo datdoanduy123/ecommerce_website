@@ -54,10 +54,10 @@ public class ProductController {
         return ResponseEntity.ok("Product deleted");
     }
 
-    @PostMapping("/Purchase")
-    public ResponseEntity<List<PurchaseResponse>> getAllProductsByPurchase(@RequestBody List<PurchaseRequest> request) {
-        return ResponseEntity.ok(service.getAllProductsByPurchase(request));
-    }
+//    @PostMapping("/Purchase")
+//    public ResponseEntity<List<PurchaseResponse>> getAllProductsByPurchase(@RequestBody List<PurchaseRequest> request) {
+//        return ResponseEntity.ok(service.getAllProductsByPurchase(request));
+//    }
 
 
 }

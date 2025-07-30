@@ -1,11 +1,10 @@
 package com.local.Ecommercial.controller;
 
-import com.local.Ecommercial.customer.CustomerRequest;
 import com.local.Ecommercial.customer.CustomerResponse;
 import com.local.Ecommercial.dto.AuthRequest;
 import com.local.Ecommercial.dto.AuthResponse;
+import com.local.Ecommercial.dto.JwtGenerateRequest;
 import com.local.Ecommercial.repository.UserRepository;
-import com.local.Ecommercial.security.JwtUtil;
 import com.local.Ecommercial.user.Role;
 import com.local.Ecommercial.user.User;
 import lombok.RequiredArgsConstructor;
@@ -13,65 +12,33 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.reactive.function.client.WebClient;
 
-
 @RestController
 @RequestMapping("api/v1/auth")
+@RequiredArgsConstructor
 public class AuthController {
     private final UserRepository userRepository;
-    private final JwtUtil jwtUtil;
     private final BCryptPasswordEncoder passwordEncoder;
-    private final WebClient customerServiceWebClient; // <== Khai báo biến này
-
-
-    public AuthController(
-            UserRepository userRepository,
-            JwtUtil jwtUtil,
-            BCryptPasswordEncoder passwordEncoder,
-            WebClient customerServiceWebClient // <== Inject qua constructor
-    ) {
-        this.userRepository = userRepository;
-        this.jwtUtil = jwtUtil;
-        this.passwordEncoder = passwordEncoder;
-        this.customerServiceWebClient = customerServiceWebClient;
-    }
-
+    private final WebClient jwtWebClient;
+    private final WebClient customerServiceWebClient;
 
     @PostMapping("/register")
     public AuthResponse register(@RequestBody AuthRequest request) {
-        // Lưu user vào DB auth-service
         User user = User.builder()
                 .username(request.getUsername())
                 .password(passwordEncoder.encode(request.getPassword()))
                 .role(Role.USER)
                 .build();
-        User savedUser = userRepository.save(user);
+        userRepository.save(user);
 
-        // Tạo CustomerRequest
-        CustomerRequest customerRequest = new CustomerRequest(
-                savedUser.getId(),
-                request.getUsername(),
-                request.getEmail(),
-                request.getPhoneNumber(),
-                request.getDateOfBirth(),
-                request.getAddress()
-        );
-
-        // Gửi POST sang customer-service
-        customerServiceWebClient.post()
-                .bodyValue(customerRequest)
+        String token = jwtWebClient.post()
+                .uri("/generate")
+                .bodyValue(new JwtGenerateRequest(user.getId(), user.getUsername(), user.getRole().name()))
                 .retrieve()
-                .toBodilessEntity()
-                .block();  // block() để chạy đồng bộ
+                .bodyToMono(String.class)
+                .block();
 
-        // Phản hồi client
-        return new AuthResponse(
-                jwtUtil.generateToken(savedUser),
-                savedUser.getRole().name(),
-                null
-
-        );
+        return new AuthResponse(token, user.getRole().name(), null);
     }
-
 
     @PostMapping("/login")
     public AuthResponse login(@RequestBody AuthRequest request) {
@@ -81,7 +48,18 @@ public class AuthController {
         if (!passwordEncoder.matches(request.getPassword(), user.getPassword())) {
             throw new RuntimeException("Bad credentials");
         }
+
+        // Gọi JWT service để tạo token
+        String token = jwtWebClient.post()
+                .uri("/generate")
+                .bodyValue(new JwtGenerateRequest(user.getId(), user.getUsername(), user.getRole().name()))
+                .retrieve()
+                .bodyToMono(String.class)
+                .block();
+
         CustomerResponse customer = null;
+
+        // Nếu user là USER, gọi sang customer-service để lấy thông tin
         if (user.getRole() == Role.USER) {
             customer = customerServiceWebClient
                     .get()
@@ -91,7 +69,7 @@ public class AuthController {
                     .block();
         }
 
-        return new AuthResponse(jwtUtil.generateToken(user), user.getRole().name(), customer);
+        return new AuthResponse(token, user.getRole().name(), customer);
     }
 
 }

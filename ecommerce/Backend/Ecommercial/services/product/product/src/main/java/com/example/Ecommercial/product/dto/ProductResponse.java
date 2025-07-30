@@ -7,7 +7,7 @@ public record ProductResponse(
         String productName,
         String productDescription,
         Double productPrice,
-        Integer availableQuantity,
+//        Integer availableQuantity,
         String producImgUrl,
         ProductStatus status,
         List<ProductSize> size,

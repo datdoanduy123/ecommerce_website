@@ -22,7 +22,7 @@ const CheckoutPage = () => {
       0
     );
     setTotalAmount(total);
-  }, []);
+  }, [userId]);
 
   const handleOrderAndPayment = async () => {
     try {

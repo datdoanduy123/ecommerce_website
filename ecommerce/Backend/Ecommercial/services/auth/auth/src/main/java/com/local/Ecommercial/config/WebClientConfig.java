@@ -13,4 +13,10 @@ public class WebClientConfig {
                 .baseUrl("http://localhost:8050/api/v1/customers")
                 .build();
     }
+    @Bean
+    public WebClient jwtWebClient() {
+        return WebClient.builder()
+                .baseUrl("http://localhost:8091/api/v1/jwt")
+                .build();
+    }
 }

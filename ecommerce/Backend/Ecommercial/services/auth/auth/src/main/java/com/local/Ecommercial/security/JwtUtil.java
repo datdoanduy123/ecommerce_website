@@ -23,7 +23,7 @@ public class JwtUtil {
 
     public String generateToken(User user) {
         Map<String, Object> claims = new HashMap<>();
-        // nếu cần thêm thông tin khác (roles, etc.) có thể bỏ vào claims
+        claims.put("role", user.getRole().name());
         return createToken(claims, user.getId().toString());
     }
 

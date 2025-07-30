@@ -13,7 +13,7 @@ public record ProductRequest(
          String productDescription,
          @NotNull(message = "Gia san pham phai co")
          Double productPrice,
-         Integer availableQuantity,
+//         Integer availableQuantity,
          @NotNull(message = "Hinh anh san pham phai co")
          String producImgUrl,
          ProductStatus status,

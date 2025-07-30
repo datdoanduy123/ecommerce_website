@@ -1,0 +1,11 @@
+server:
+  port: 8091
+
+app:
+  jwt:
+    secret: thisIsASecretKeyForJWTThatIsVeryLongAndSafe
+    expirationMs: 86400000 # 24h
+
+logging:
+  level:
+    org.springframework.security: DEBUG
